@@ -36,7 +36,18 @@
             },
             startPathHash: 'l2_Lw', // Sets the course driver as default
             resizable: false,
-            lang: '{{ elfinder_lang }}'
+            lang: '{{ elfinder_lang }}',
+            handlers : {
+                open : function(event, elfinderInstance) {
+                    let sessionFiles=[];
+                    event.data.files.forEach((file) => {
+                        if(file.name.includes("__" +{{session_id}} +"__")){
+                            sessionFiles.push(file.name);
+                        }
+                    }) 
+                    console.log(sessionFiles);
+                }
+            }
         }).elfinder('instance');
     });
 </script>

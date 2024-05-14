@@ -638,7 +638,8 @@ if (typeof CKEDITOR !== 'undefined') {
         'inserthtml',
         'qmarkersrolls',
         'ckeditor_vimeo_embed',
-        'image2_chamilo'
+        'image2_chamilo',
+        'ckfinder'
     ];
 
     plugins.forEach(function (plugin) {
