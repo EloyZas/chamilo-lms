@@ -8086,7 +8086,9 @@ class SessionManager
         ];
 
         $SessionAccesibleConfigOption = api_get_configuration_value('dont_show_SessionAccessible_option');
-        if($SessionAccesibleConfigOption){
+        $extraFieldAccesible = SessionManager::getFilteredExtraFields($sessionId,["hide_accesible"]);
+        $optionFieldAccesible = $extraFieldAccesible[0]['value'];
+        if(!$SessionAccesibleConfigOption && $optionFieldAccesible){
             array_splice($options,1,1);
         }
 
